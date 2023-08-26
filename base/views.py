@@ -20,6 +20,9 @@ def room(request):
 def register(request):
     return render(request, 'base/register.html')
 
+def login(request):
+    return render(request, 'base/login.html')
+
 def getToken(request):
     appId = "6bb17f29e6484385bd9cd18f62d29512"
     appCertificate = "7d419c13e18d458c8a4a405540446568"
