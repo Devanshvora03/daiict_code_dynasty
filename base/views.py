@@ -17,6 +17,8 @@ def lobby(request):
 def room(request):
     return render(request, 'base/room.html')
 
+def register(request):
+    return render(request, 'base/register.html')
 
 def getToken(request):
     appId = "6bb17f29e6484385bd9cd18f62d29512"
