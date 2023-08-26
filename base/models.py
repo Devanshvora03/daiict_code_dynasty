@@ -10,3 +10,10 @@ class RoomMember(models.Model):
 
     def __str__(self):
         return self.name
+    
+# class EventCreation(models.Model):
+#     event_title = models.CharField(max_length=200)
+#     event_desc = models.CharField(max_length=200)
+#     event_date = models.CharField(max_length=200)
+#     event_time = models.DateTimeField()
+#     event_format = models.CharField(max_length=200)
