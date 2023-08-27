@@ -11,7 +11,7 @@ urlpatterns = [
     path('delete_member/', views.deleteMember),
 
     path('studentd/', views.studentd, name='studentd'),
-    path('facultyd/', views.studentd, name='facultyd'),
+    path('facultyd/', views.facultyd, name='facultyd'),
 
     path('', views.index),
 

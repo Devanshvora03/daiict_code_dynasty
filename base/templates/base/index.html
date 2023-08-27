@@ -3,6 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script
+      src="https://kit.fontawesome.com/64d58efce2.js"
+      crossorigin="anonymous"
+    ></script> -->
+    <!-- <link rel="stylesheet" href="style.css" /> -->
+    <title>Sign in & Sign up Form</title>
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
@@ -109,7 +115,7 @@ form.sign-in-form {
   font-weight: 500;
 }
 
-/* .social-text {
+.social-text {
   padding: 0.7rem 0;
   font-size: 1rem;
 }
@@ -117,9 +123,9 @@ form.sign-in-form {
 .social-media {
   display: flex;
   justify-content: center;
-} */
+}
 
-/* .social-icon {
+.social-icon {
   height: 46px;
   width: 46px;
   display: flex;
@@ -132,12 +138,12 @@ form.sign-in-form {
   text-decoration: none;
   font-size: 1.3rem;
   transition: 0.3s;
-} */
+}
 
-/* .social-icon:hover {
+.social-icon:hover {
   color: #6495ED;
   border-color: #6495ED;
-} */
+}
 
 .btn {
   width: 150px;
@@ -409,20 +415,14 @@ form.sign-in-form {
     left: 50%;
   }
 }
+      
     </style>
-    
-    <!-- <script
-      src="https://kit.fontawesome.com/64d58efce2.js"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="style.css" /> -->
-    <title>Sign in & Sign up Form</title>
   </head>
   <body>
     <div class="container">
       <div class="forms-container">
         <div class="signin-signup">
-          <form action="#" class="sign-in-form">
+          <form action="" class="sign-in-form">
             <h2 class="title">Sign in</h2>
             <div class="input-field">
               <i class="fas fa-user"></i>
@@ -432,7 +432,12 @@ form.sign-in-form {
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" />
             </div>
-            <button type="submit" class="btn solid"><a href="/studentd" style="text-decoration:none; color:#ffff">Login<a></button>
+            {% comment %} <button type="submit" class="btn solid" href="/studentd">Login as student</button>
+            <button type="submit" class="btn solid">Login as host</button> {% endcomment %}
+            <a href="/studentd" style="text-decoration:none"><button class="btn solid">Login as student</button></a>
+            <button type="button" class="btn solid" > <a href="/facultyd"> Login as host</a></button>
+
+
             <!-- <p class="social-text">Or Sign in with social platforms</p>
             <div class="social-media">
               <a href="#" class="social-icon">
@@ -449,6 +454,7 @@ form.sign-in-form {
               </a>
             </div> -->
           </form>
+         
           <form action="#" class="sign-up-form">
             <h2 class="title">Sign up</h2>
             <div class="input-field">
@@ -482,7 +488,7 @@ form.sign-in-form {
           </form>
         </div>
       </div>
-
+     
       <div class="panels-container">
         <div class="panel left-panel">
           <div class="content">
@@ -537,4 +543,5 @@ $('.menu-toggle').click(function(){
 });
     </script>
   </body>
+  
 </html>
