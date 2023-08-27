@@ -12,11 +12,11 @@ from django.contrib.auth import authenticate, login, get_user_model
 def lobby(request):
     return render(request, 'base/lobby.html')
 
+def index(request):
+    return render(request, 'base/index.html')
+
 def room(request):
     return render(request, 'base/room.html')
-
-def register(request):
-    return render(request, 'base/register.html')
 
 def main(request):
     return render(request,'base/main.html')
@@ -26,9 +26,6 @@ def studentd(request):
 
 def facultyd(request):
     return render(request, 'base/facultyd.html')
-
-def login(request):
-    return render(request, 'base/login.html')
 
 def schedule(request):
     return render(request, 'base/schedule.html')
