@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from django.http import JsonResponse
 import random
 import time
@@ -6,6 +6,8 @@ from agora_token_builder import RtcTokenBuilder
 from .models import RoomMember
 import json
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth import authenticate, login, get_user_model
+
 
 
 
@@ -14,16 +16,68 @@ from django.views.decorators.csrf import csrf_exempt
 def lobby(request):
     return render(request, 'base/lobby.html')
 
-def index(request):
-    return render(request, 'base/index.html')
+# def index(request):
+#     return render(request, 'base/index.html')
 
 def room(request):
     return render(request, 'base/room.html')
 
+
+
 def register(request):
-    return render(request, 'base/register.html')
+    print('in register')
+    print(request)
+    if request.method == "POST":
+        print('inpost')
+        email = request.POST.get('email')
+        password = request.POST.get('password')
+        username = request.POST.get('uname')
+        
+        print(username)
+        # user = authenticate(email = email,password =password)
+        user = User.objects.create_user(username, email, password)
+        message ='signup successfully'
+    else:
+        print('not post')
+        return render(request, 'base/register.html')
+
+        
+        
+    
+def main(request):
+    return render(request,'main.html')
+
+def studentd(request):
+    return render(request, 'studentd.html')
+
 
 def login(request):
+    
+    if request.user.is_authenticated:
+        return redirect('main')
+       
+    if request.method =="POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        # username = User.objects.get(email=email).username
+        # user_id = User.objects.get(email=email).id
+        # data = {
+        #     'username':username,
+        #     'eamil':email,
+        #     'user_id':user_id,
+        # }
+        # print(data)
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+        return redirect('main')
+    else:
+        return redirect('login.html')
+              
+    return render(request, 'base/login.html')
+
+    
+    
     return render(request, 'base/login.html')
 
 def getToken(request):
